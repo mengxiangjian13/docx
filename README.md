@@ -13,6 +13,8 @@ func main() {
 		panic(err)
 	}
 	docx1 := r.Editable()
+	// get file content
+	content := docx1.TotalContent()
 	// Replace like https://golang.org/pkg/strings/#Replace
 	docx1.Replace("old_1_1", "new_1_1", -1)
 	docx1.Replace("old_1_2", "new_1_2", -1)
@@ -30,3 +32,6 @@ func main() {
 }
 
 ```
+
+#### I fork this repo, because I want to add a public method to get `.docx` file content, so here it is.
+
