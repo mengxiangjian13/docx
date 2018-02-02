@@ -42,8 +42,12 @@ type Docx struct {
 	footers map[string]string
 }
 
+func (d *Docx) TotalContent() string {
+	return d.content
+}
+
 func (d *Docx) ReplaceRaw(oldString string, newString string, num int) {
-       d.content = strings.Replace(d.content, oldString, newString, num)
+	d.content = strings.Replace(d.content, oldString, newString, num)
 }
 
 func (d *Docx) Replace(oldString string, newString string, num int) (err error) {
@@ -285,7 +289,6 @@ func streamToByte(stream io.Reader) []byte {
 	buf.ReadFrom(stream)
 	return buf.Bytes()
 }
-
 
 func encode(s string) (string, error) {
 	var b bytes.Buffer
